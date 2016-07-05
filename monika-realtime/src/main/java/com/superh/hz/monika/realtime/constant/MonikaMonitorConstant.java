@@ -30,4 +30,9 @@ public interface MonikaMonitorConstant {
 	public static final String JOB_SPARK_STREAMING_MAXRATEPERPARTITION = "spark.streaming.kafka.maxRatePerPartition";
 	public static final String JOB_RUN_PARAM_GROUPBYKEY_NUM = "job.run.param.groupbykey.num";
 	
+	public static final String MONIKA_MONITOR_TASK_FLAG = "monika.monitor.task.flag";
+	public static final String MONIKA_MONITOR_TASK_CLASS = "monika.monitor.task.class";
+	public static final String MONIKA_MONITOR_TASK_PARSER_CLASS = "monika.monitor.task.parser.class";
+	
+	
 }

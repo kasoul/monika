@@ -4,9 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.superh.hz.monika.realtime.constant.MonikaConfiguration;
+import com.superh.hz.monika.realtime.constant.MonikaMonitorTaskFlag;
+
 import net.sf.json.JSONObject;
 
 public class MonitorTaskBuilder {
+	
+	private static MonitorTaskParser monitorTaskParser;
+	
+	public void init(){
+		if(MonikaConfiguration.getInstance().getMonitorTaskFlag()==
+				MonikaMonitorTaskFlag.SimpleTask.getValue()){
+			monitorTaskParser = new SimpleMonitorTaskParser();
+		}else if(MonikaConfiguration.getInstance().getMonitorTaskFlag()==
+			MonikaMonitorTaskFlag.CommonTask.getValue()){
+			monitorTaskParser = new CommonMonitorTaskParser();
+		}else{
+			Class<?> c;
+			try {
+				c = Class.forName(MonikaConfiguration.getInstance().getMonitorTaskParserClass());
+				monitorTaskParser = (MonitorTaskParser)c.newInstance();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 	
 	public static List<MonitorTask> buildTaskList(Map<String,String> taskInfoMap){
 		
@@ -31,12 +61,8 @@ public class MonitorTaskBuilder {
 	}
 	
 	private static MonitorTask buildTask(String taskType,String taskId, String taskJson ){
+		return monitorTaskParser.parser2Task(taskType,taskId,taskJson);
 		
-		if(taskType.equals(String.valueOf(VehicleMonitorTypeEnum.VehicelIntelligent))){
-			return new IntellgientMonitorTask(taskId,taskJson);
-		}else{
-			return new SimpleMonitorTask(taskType,taskId,taskJson);
-		}
 	}
 	
 	

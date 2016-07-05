@@ -1,5 +1,6 @@
 package com.superh.hz.monika.realtime.task;
 
+import java.util.List;
 import java.util.Map;
 
 import net.sf.json.JSONObject;
@@ -13,7 +14,7 @@ public class CommonMonitorTask implements MonitorTask {
 	
 	private String taskType;
 	private String taskId;
-	private Map<String,String> monitorParams;
+	private List<MonitorCondition> monitorParams;
 	
 	
 	public CommonMonitorTask(String taskType,String taskId,String taskString){

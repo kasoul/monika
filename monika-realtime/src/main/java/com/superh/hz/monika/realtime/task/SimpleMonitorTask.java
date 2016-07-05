@@ -16,10 +16,10 @@ public class SimpleMonitorTask implements MonitorTask {
 	private Map<String,String> monitorParams;
 	
 	
-	public SimpleMonitorTask(String taskType,String taskId,String taskString){
+	public SimpleMonitorTask(String taskType,String taskId,Map<String,String> monitorParams){
 		this.setTaskType(taskType);
 		this.setTaskId(taskId);
-		this.setMonitorParams(MonitorTaskParser.parse2SimpleTask(taskString));
+		this.setMonitorParams(monitorParams);
 	}
 
 	public String getTaskId() {
