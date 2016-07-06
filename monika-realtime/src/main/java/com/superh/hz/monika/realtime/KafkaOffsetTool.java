@@ -24,14 +24,16 @@ public class KafkaOffsetTool {
 		Map<String, String> kafkaParams = new HashMap<String, String>();
 		String topic = "meta";
 		kafkaParams.put("metadata.broker.list","node1:9092,node2:9092,node3:9092,node4:9092");
-		Map<TopicAndPartition, Long> map = getLastestOffset(kafkaParams,topic);
+
+		//Map<TopicAndPartition, Long> map = getLastestOffset(kafkaParams,topic);
+		Map<TopicAndPartition, Long> map = getSmallestOffset(kafkaParams,topic);
 		for(TopicAndPartition tp: map.keySet()){
 			System.out.println(tp.topic() + "-" + tp.partition() + ":" + map.get(tp));
 		}
 		
 	}
-
-	public static Map<TopicAndPartition, Long> getLastestOffset(Map<String, String> kafkaParams, String topic) {
+	
+	private static Map<TopicAndPartition, Long> getOffsetBeforeTimestamp(Map<String, String> kafkaParams, String topic, long whichTime) {
 
 		Map<TopicAndPartition, Long> mapTpls = new HashMap<TopicAndPartition, Long>();
 		String brokerList = kafkaParams.get("metadata.broker.list");
@@ -50,7 +52,7 @@ public class KafkaOffsetTool {
 			String leadBroker = entry.getValue().leader().host();
 			String clientName = "Client_" + topic + "_" + partition;
 			SimpleConsumer consumer = new SimpleConsumer(leadBroker, port, 100000, 64 * 1024, clientName);
-			long readOffset = getLastestOffset(consumer, topic, partition, kafka.api.OffsetRequest.LatestTime(),
+			long readOffset = getLastestOffset(consumer, topic, partition, whichTime,
 					clientName);
 
 			TopicAndPartition tp = new TopicAndPartition(topic, partition);
@@ -64,8 +66,20 @@ public class KafkaOffsetTool {
 		return mapTpls;
 	}
 
+	public static Map<TopicAndPartition, Long> getLastestOffset(Map<String, String> kafkaParams, String topic) {
+
+		return getOffsetBeforeTimestamp(kafkaParams,topic,kafka.api.OffsetRequest.LatestTime());
+	
+	}
+	
+	public static Map<TopicAndPartition, Long> getSmallestOffset(Map<String, String> kafkaParams, String topic) {
+
+		return getOffsetBeforeTimestamp(kafkaParams,topic,kafka.api.OffsetRequest.EarliestTime());
+	
+	}
+
 	// private List<String> m_replicaBrokers = new ArrayList<String>();
-	public static long getLastestOffset(SimpleConsumer consumer, String topic, int partition, long whichTime,
+	private static long getLastestOffset(SimpleConsumer consumer, String topic, int partition, long whichTime,
 			String clientName) {
 
 		TopicAndPartition topicAndPartition = new TopicAndPartition(topic, partition);
@@ -84,6 +98,10 @@ public class KafkaOffsetTool {
 		return offsets[0];
 	}
 
+	/**
+	* 只需要一个broker，就可以发现所有的节点，
+	* 通过TopicMetadataRequest发现所有的TopicMetadata，进而发现所有的PartitionMetadata
+	*/
 	private static TreeMap<Integer, PartitionMetadata> findLeaderBrokerList(List<String> a_seedBrokers, int a_port,
 			String a_topic) {
 

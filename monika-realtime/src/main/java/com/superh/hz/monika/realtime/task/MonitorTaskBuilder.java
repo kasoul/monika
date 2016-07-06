@@ -55,7 +55,10 @@ public class MonitorTaskBuilder {
 				//System.out.println(Long.parseLong(endTime));
 				continue;
 			}else{
-				list.add(buildTask(taskType,taskId,taskParams));
+				MonitorTask task = buildTask(taskType,taskId,taskParams);
+				if(!task.isNullParams()){
+					list.add(buildTask(taskType,taskId,taskParams));
+				}
 			}
 		}
 		return list;

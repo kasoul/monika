@@ -54,8 +54,21 @@ public class SimpleMonitorTask implements MonitorTask {
 
 	@Override
 	public boolean executeMonitor(JSONObject jsonTuple) {
+		/*System.out.println("调试点-任务参数个数：" + monitorParams.size() +":"+taskType+":"+taskId);*/
+		for(String paramkey:monitorParams.keySet()){
+			if(!(monitorParams.get(paramkey).equals(jsonTuple.getString(paramkey)))){
+				/*System.out.println("调试点：" + paramkey + ":" 
+			+ monitorParams.get(paramkey) + ":" +jsonTuple.getString(paramkey));*/
+				return false;
+			}
+		}
 		
-		return false;
+		return true;
+	}
+
+	@Override
+	public boolean isNullParams() {
+		return monitorParams==null||monitorParams.size()==0;
 	}
 
 	

@@ -14,6 +14,8 @@ public interface MonitorTask extends Serializable {
 	//返回true则为目标记录，将记录推送到结果集合
 	public boolean executeMonitor(JSONObject jsonTuple);
 	
+	public boolean isNullParams();
+	
 	public String getTaskId();
 
 	public String getTaskType();

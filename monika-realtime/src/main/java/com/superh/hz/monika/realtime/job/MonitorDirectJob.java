@@ -28,6 +28,7 @@ import org.slf4j.LoggerFactory;
 
 import com.superh.hz.monika.realtime.KafkaOffsetTool;
 import com.superh.hz.monika.realtime.PropertiesHelper;
+import com.superh.hz.monika.realtime.constant.MonikaConfiguration;
 import com.superh.hz.monika.realtime.constant.MonikaMonitorConstant;
 import com.superh.hz.monika.realtime.result.MonitorResult;
 import com.superh.hz.monika.realtime.task.MonitorTask;
@@ -55,21 +56,23 @@ public class MonitorDirectJob {
 	public static void main(String[] args) {
 		
 		PropertyConfigurator.configure(MonikaMonitorConstant.LOG4J_PROPERTIES__PATH);
+		propertiesHelper = new PropertiesHelper(MonikaMonitorConstant.PROPERTIES_PATH,
+				MonikaMonitorConstant.CHAR_SET_DEFUALT);
+		MonikaConfiguration.buildInstance(propertiesHelper);
+		MonitorTaskBuilder.init();
 		
 		buildStream();
 	
 	}
 
 	public static void buildStream() {
-		propertiesHelper = new PropertiesHelper(MonikaMonitorConstant.PROPERTIES_PATH,
-				MonikaMonitorConstant.CHAR_SET_DEFUALT);
+		
 		
 		conf = new SparkConf().setAppName("Real Time Monitor (Direct) Job");
 		
 		conf.setMaster("local[*]");
 	
-		/*conf.set("spark.streaming.blockInterval", 
-				propertiesHelper.getProperty(VehicleMonitorConstant.JOB_SPARK_STREAMING_BLOCKINTERVAL,"1000"));*/
+		
 		conf.set("spark.streaming.kafka.maxRatePerPartition",
 				propertiesHelper.getProperty(MonikaMonitorConstant.JOB_SPARK_STREAMING_MAXRATEPERPARTITION,"100"));
 		
@@ -80,12 +83,14 @@ public class MonitorDirectJob {
 		kafkaParams.put("metadata.broker.list", 
 				propertiesHelper.getProperty(MonikaMonitorConstant.KAFKA_BROKERS_LIST));
 
-		boolean redisOffsetReset = propertiesHelper.getBoolean(MonikaMonitorConstant.KAFKA_REDIS_OFFSET_RESET, false);
+		String redisOffsetReset = propertiesHelper.getProperty(MonikaMonitorConstant.KAFKA_REDIS_OFFSET_RESET, "current");
 		
 		//kafka默认偏移量是auto.offset.reset确定，客户端控制偏移量
 		
 		Map<TopicAndPartition,Long> lastOffset = null;
-		if(redisOffsetReset){
+		if(redisOffsetReset.equals("smallest")){
+			lastOffset = KafkaOffsetTool.getSmallestOffset(kafkaParams, propertiesHelper.getProperty(MonikaMonitorConstant.KAFKA_CONSUMER_TOPIC));
+		}else if(redisOffsetReset.equals("largest")){
 			lastOffset = KafkaOffsetTool.getLastestOffset(kafkaParams, propertiesHelper.getProperty(MonikaMonitorConstant.KAFKA_CONSUMER_TOPIC));
 		}else{
 			lastOffset = getRedisKafkaOffset();
@@ -153,6 +158,8 @@ public class MonitorDirectJob {
 				
 				
 				Broadcast<List<MonitorTask>> bc_taskList = jssc.sparkContext().broadcast(taskList);
+				
+				
 				Broadcast<String> bc_redisResultKey = jssc.sparkContext().broadcast(
 						propertiesHelper.getProperty(MonikaMonitorConstant.REDIS_MONITOR_RESULT_KEY));
 				
@@ -162,13 +169,6 @@ public class MonitorDirectJob {
 				Broadcast<Integer> bc_redisServerPort = jssc.sparkContext().broadcast(
 						propertiesHelper.getInt(MonikaMonitorConstant.REDIS_NODE_PORT,6379));
 				
-				Broadcast<String> bc_hbaseRootdir = jssc.sparkContext().broadcast(
-						propertiesHelper.getProperty(MonikaMonitorConstant.HBASE_ROOTDIR));
-				Broadcast<String> bc_hbaseZKQuorum = jssc.sparkContext().broadcast(
-						propertiesHelper.getProperty(MonikaMonitorConstant.HBASE_ZOOKEEPER_QUORUM));
-				
-				
-				//Broadcast<Configuration> bc_hadoopConf = jssc.sparkContext().broadcast(conf);
 						
 				Accumulator<Integer> acc_batchCount = jssc.sparkContext().accumulator(0);
 				Accumulator<Integer> acc_monitorResultCount = jssc.sparkContext().accumulator(0);

@@ -2,7 +2,7 @@ package com.superh.hz.monika.realtime.constant;
 
 public interface MonikaMonitorConstant {
 	
-	public static final String PROPERTIES_PATH = "./conf/real-time-vehicle-monitor.properties";
+	public static final String PROPERTIES_PATH = "./conf/real-time-monitor-job.properties";
 	public static final String LOG4J_PROPERTIES__PATH = "./conf/log4j.properties";
 	public static final String CLASSPATH_PROPERTIES_FILE = "real-time-monitor-job.properties";
 	public static final String CHAR_SET_DEFUALT = "UTF-8";

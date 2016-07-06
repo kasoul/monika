@@ -1,0 +1,1021 @@
+2016-07-06 16:21:56 [com.superh.hz.monika.realtime.PropertiesHelper :88-line]-[ERROR:] .\conf\real-time-vehicle-monitor.properties (系统找不到指定的文件。)
+2016-07-06 16:22:54 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:79)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:63)
+2016-07-06 16:22:55 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 16:22:55 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 16:22:56 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:49591]
+2016-07-06 16:22:56 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 16:22:56 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 16:23:00 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 16:23:00 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 16:23:00 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 16:23:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :139-line]-[INFO:] -----------------------------------------
+2016-07-06 16:23:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :140-line]-[INFO:] Time: [1467793380093]ms
+2016-07-06 16:23:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 16:23:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 16:23:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 16:23:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 16:23:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :149-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 16:23:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :150-line]-[INFO:] -----------------------------------------
+2016-07-06 16:23:00 [org.apache.spark.streaming.scheduler.JobScheduler :95-line]-[ERROR:] Error running job streaming job 1467793380000 ms.0
+java.lang.NullPointerException
+	at com.superh.hz.monika.realtime.task.MonitorTaskBuilder.buildTask(MonitorTaskBuilder.java:65)
+	at com.superh.hz.monika.realtime.task.MonitorTaskBuilder.buildTaskList(MonitorTaskBuilder.java:58)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob$3.call(MonitorDirectJob.java:153)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob$3.call(MonitorDirectJob.java:1)
+	at org.apache.spark.streaming.api.java.JavaDStreamLike$$anonfun$foreachRDD$3.apply(JavaDStreamLike.scala:335)
+	at org.apache.spark.streaming.api.java.JavaDStreamLike$$anonfun$foreachRDD$3.apply(JavaDStreamLike.scala:335)
+	at org.apache.spark.streaming.dstream.DStream$$anonfun$foreachRDD$1$$anonfun$apply$mcV$sp$3.apply(DStream.scala:661)
+	at org.apache.spark.streaming.dstream.DStream$$anonfun$foreachRDD$1$$anonfun$apply$mcV$sp$3.apply(DStream.scala:661)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(ForEachDStream.scala:50)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(ForEachDStream.scala:50)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(ForEachDStream.scala:50)
+	at org.apache.spark.streaming.dstream.DStream.createRDDWithLocalProperties(DStream.scala:426)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply$mcV$sp(ForEachDStream.scala:49)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply(ForEachDStream.scala:49)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply(ForEachDStream.scala:49)
+	at scala.util.Try$.apply(Try.scala:161)
+	at org.apache.spark.streaming.scheduler.Job.run(Job.scala:39)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply$mcV$sp(JobScheduler.scala:224)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply(JobScheduler.scala:224)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply(JobScheduler.scala:224)
+	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:57)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler.run(JobScheduler.scala:223)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming/batch,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/static/streaming,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming/batch/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/metrics/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/api,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/static,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/environment/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/environment,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage/rdd,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/pool,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/stage,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs/job,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs/json,null}
+2016-07-06 16:23:00 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs,null}
+2016-07-06 16:24:38 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 16:24:39 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 16:24:39 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 16:24:39 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:49706]
+2016-07-06 16:24:39 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 16:24:39 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 16:24:44 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 16:24:44 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 16:24:44 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 16:24:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :140-line]-[INFO:] -----------------------------------------
+2016-07-06 16:24:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :141-line]-[INFO:] Time: [1467793484164]ms
+2016-07-06 16:24:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 16:24:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :150-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 16:24:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :151-line]-[INFO:] -----------------------------------------
+2016-07-06 16:24:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :155-line]-[INFO:] ----------------当前布控任务总数量：[5]
+2016-07-06 16:24:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :209-line]-[INFO:] ----------------deal time=>[1467793484650],batch count：[0]
+2016-07-06 16:24:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :210-line]-[INFO:] ----------------deal time=>[1467793484650],result count：[0]
+2016-07-06 16:24:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :140-line]-[INFO:] -----------------------------------------
+2016-07-06 16:24:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :141-line]-[INFO:] Time: [1467793488025]ms
+2016-07-06 16:24:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 16:24:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :150-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 16:24:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :151-line]-[INFO:] -----------------------------------------
+2016-07-06 16:24:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :155-line]-[INFO:] ----------------当前布控任务总数量：[5]
+2016-07-06 16:24:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :209-line]-[INFO:] ----------------deal time=>[1467793488080],batch count：[0]
+2016-07-06 16:24:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :210-line]-[INFO:] ----------------deal time=>[1467793488080],result count：[0]
+2016-07-06 16:24:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :140-line]-[INFO:] -----------------------------------------
+2016-07-06 16:24:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :141-line]-[INFO:] Time: [1467793492026]ms
+2016-07-06 16:24:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 16:24:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :150-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 16:24:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :151-line]-[INFO:] -----------------------------------------
+2016-07-06 16:24:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :155-line]-[INFO:] ----------------当前布控任务总数量：[5]
+2016-07-06 16:24:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :209-line]-[INFO:] ----------------deal time=>[1467793492079],batch count：[0]
+2016-07-06 16:24:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :210-line]-[INFO:] ----------------deal time=>[1467793492079],result count：[0]
+2016-07-06 16:24:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :140-line]-[INFO:] -----------------------------------------
+2016-07-06 16:24:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :141-line]-[INFO:] Time: [1467793496024]ms
+2016-07-06 16:24:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 16:24:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 16:24:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :150-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 16:24:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :151-line]-[INFO:] -----------------------------------------
+2016-07-06 16:24:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :155-line]-[INFO:] ----------------当前布控任务总数量：[5]
+2016-07-06 16:24:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :209-line]-[INFO:] ----------------deal time=>[1467793496066],batch count：[0]
+2016-07-06 16:24:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :210-line]-[INFO:] ----------------deal time=>[1467793496066],result count：[0]
+2016-07-06 16:25:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :140-line]-[INFO:] -----------------------------------------
+2016-07-06 16:25:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :141-line]-[INFO:] Time: [1467793500023]ms
+2016-07-06 16:25:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 16:25:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 16:25:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 16:25:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 16:25:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :150-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 16:25:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :151-line]-[INFO:] -----------------------------------------
+2016-07-06 16:25:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :155-line]-[INFO:] ----------------当前布控任务总数量：[5]
+2016-07-06 16:25:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :209-line]-[INFO:] ----------------deal time=>[1467793500072],batch count：[0]
+2016-07-06 16:25:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :210-line]-[INFO:] ----------------deal time=>[1467793500072],result count：[0]
+2016-07-06 16:25:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :140-line]-[INFO:] -----------------------------------------
+2016-07-06 16:25:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :141-line]-[INFO:] Time: [1467793504020]ms
+2016-07-06 16:25:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 16:25:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 16:25:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 16:25:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 16:25:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :150-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 16:25:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :151-line]-[INFO:] -----------------------------------------
+2016-07-06 16:25:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :155-line]-[INFO:] ----------------当前布控任务总数量：[5]
+2016-07-06 16:25:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :209-line]-[INFO:] ----------------deal time=>[1467793504050],batch count：[0]
+2016-07-06 16:25:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :210-line]-[INFO:] ----------------deal time=>[1467793504050],result count：[0]
+2016-07-06 16:25:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :140-line]-[INFO:] -----------------------------------------
+2016-07-06 16:25:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :141-line]-[INFO:] Time: [1467793508023]ms
+2016-07-06 16:25:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 16:25:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 16:25:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 16:25:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 16:25:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :150-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 16:25:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :151-line]-[INFO:] -----------------------------------------
+2016-07-06 16:25:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :155-line]-[INFO:] ----------------当前布控任务总数量：[5]
+2016-07-06 16:25:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :209-line]-[INFO:] ----------------deal time=>[1467793508075],batch count：[0]
+2016-07-06 16:25:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :210-line]-[INFO:] ----------------deal time=>[1467793508075],result count：[0]
+2016-07-06 16:43:49 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 16:43:50 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 16:43:50 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 16:43:50 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:50065]
+2016-07-06 16:43:50 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 16:43:50 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 16:43:52 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 16:43:52 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 16:43:52 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 16:43:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 16:43:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467794632167]ms
+2016-07-06 16:43:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 16:43:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 16:43:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 16:43:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 16:43:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 16:43:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 16:43:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[5]
+2016-07-06 16:43:52 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 16:43:52 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 16:43:52 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 16:43:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467794632500],batch count：[3]
+2016-07-06 16:43:52 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467794632500],result count：[5]
+2016-07-06 16:43:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 16:43:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467794636024]ms
+2016-07-06 16:43:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 16:43:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 16:43:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 16:43:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 16:43:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 16:43:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 16:43:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[5]
+2016-07-06 16:43:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467794636091],batch count：[0]
+2016-07-06 16:43:56 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467794636091],result count：[0]
+2016-07-06 16:44:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 16:44:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467794640024]ms
+2016-07-06 16:44:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 16:44:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 16:44:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 16:44:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 16:44:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 16:44:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 16:44:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[5]
+2016-07-06 16:44:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467794640085],batch count：[0]
+2016-07-06 16:44:00 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467794640085],result count：[0]
+2016-07-06 17:09:15 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 17:09:16 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 17:09:16 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 17:09:16 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:50659]
+2016-07-06 17:09:16 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 17:09:16 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 17:09:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:09:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:09:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:09:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:09:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467796160125]ms
+2016-07-06 17:09:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 17:09:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:09:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:09:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:09:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:09:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:09:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:09:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:09:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:09:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:09:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467796160440],batch count：[3]
+2016-07-06 17:09:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467796160440],result count：[4]
+2016-07-06 17:09:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:09:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467796164023]ms
+2016-07-06 17:09:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:09:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 17:09:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:09:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:09:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:09:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:09:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:09:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467796164075],batch count：[0]
+2016-07-06 17:09:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467796164075],result count：[0]
+2016-07-06 17:09:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:09:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467796168025]ms
+2016-07-06 17:09:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:09:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 17:09:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:09:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:09:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:09:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:09:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:09:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467796168102],batch count：[0]
+2016-07-06 17:09:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467796168102],result count：[0]
+2016-07-06 17:12:42 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 17:12:43 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 17:12:43 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 17:12:43 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:50795]
+2016-07-06 17:12:43 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 17:12:43 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 17:12:48 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:12:48 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:12:48 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:12:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:12:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467796368168]ms
+2016-07-06 17:12:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 17:12:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:12:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:12:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:12:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:12:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:12:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:12:48 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:12:48 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:12:48 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:12:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467796368499],batch count：[3]
+2016-07-06 17:12:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467796368499],result count：[4]
+2016-07-06 17:18:19 [com.superh.hz.monika.realtime.job.MonitorDirectJob :30-line]-[INFO:] MONITOR_TASK_FLAG is [1]
+2016-07-06 17:18:19 [com.superh.hz.monika.realtime.job.MonitorDirectJob :33-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is [null]
+2016-07-06 17:18:19 [com.superh.hz.monika.realtime.job.MonitorDirectJob :36-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-06 17:18:19 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 17:18:20 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 17:18:20 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 17:18:20 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:50913]
+2016-07-06 17:18:20 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 17:18:21 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 17:18:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:18:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:18:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:18:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:18:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467796704141]ms
+2016-07-06 17:18:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 17:18:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:18:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:18:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:18:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:18:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:18:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:18:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:18:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:18:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:23:26 [com.superh.hz.monika.realtime.job.MonitorDirectJob :30-line]-[INFO:] MONITOR_TASK_FLAG is [1]
+2016-07-06 17:23:26 [com.superh.hz.monika.realtime.job.MonitorDirectJob :33-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is [null]
+2016-07-06 17:23:26 [com.superh.hz.monika.realtime.job.MonitorDirectJob :36-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-06 17:23:26 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 17:23:27 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 17:23:27 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 17:23:27 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:51259]
+2016-07-06 17:23:27 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 17:23:27 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 17:23:32 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:23:32 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:23:32 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:23:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:23:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467797012129]ms
+2016-07-06 17:23:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 17:23:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:23:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:23:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:23:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:23:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:23:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:23:32 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:23:32 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:23:32 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:33:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :30-line]-[INFO:] MONITOR_TASK_FLAG is [1]
+2016-07-06 17:33:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :33-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is [null]
+2016-07-06 17:33:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :36-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-06 17:33:13 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 17:33:13 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 17:33:13 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 17:33:13 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:51597]
+2016-07-06 17:33:13 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 17:33:14 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 17:33:16 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:33:16 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:33:16 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:33:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:33:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467797596102]ms
+2016-07-06 17:33:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 17:33:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:33:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:33:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:33:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:33:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:33:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:33:16 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:33:16 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:33:16 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:33:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467797596502],batch count：[3]
+2016-07-06 17:33:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467797596502],result count：[4]
+2016-07-06 17:38:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :30-line]-[INFO:] MONITOR_TASK_FLAG is [1]
+2016-07-06 17:38:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :33-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is [null]
+2016-07-06 17:38:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :36-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-06 17:38:04 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 17:38:05 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 17:38:05 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 17:38:05 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:51717]
+2016-07-06 17:38:05 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 17:38:05 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 17:38:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:38:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:38:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:38:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:38:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467797888101]ms
+2016-07-06 17:38:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 17:38:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:38:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:38:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:38:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:38:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:38:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:38:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:38:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:38:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:38:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467797888411],batch count：[3]
+2016-07-06 17:38:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467797888411],result count：[4]
+2016-07-06 17:43:41 [com.superh.hz.monika.realtime.job.MonitorDirectJob :30-line]-[INFO:] MONITOR_TASK_FLAG is [1]
+2016-07-06 17:43:41 [com.superh.hz.monika.realtime.job.MonitorDirectJob :33-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is [null]
+2016-07-06 17:43:41 [com.superh.hz.monika.realtime.job.MonitorDirectJob :36-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-06 17:43:42 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 17:43:42 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 17:43:42 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 17:43:42 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:51850]
+2016-07-06 17:43:42 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 17:43:42 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 17:43:44 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:43:44 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:43:44 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:43:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:43:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467798224062]ms
+2016-07-06 17:43:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 17:43:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:43:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:43:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:43:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:43:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:43:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:43:44 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:43:44 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:43:44 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:43:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467798224373],batch count：[3]
+2016-07-06 17:43:44 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467798224373],result count：[4]
+2016-07-06 17:43:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:43:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467798228023]ms
+2016-07-06 17:43:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:43:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 17:43:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:43:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:43:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:43:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:43:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:43:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467798228079],batch count：[0]
+2016-07-06 17:43:48 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467798228079],result count：[0]
+2016-07-06 17:44:06 [com.superh.hz.monika.realtime.job.MonitorDirectJob :30-line]-[INFO:] MONITOR_TASK_FLAG is [1]
+2016-07-06 17:44:06 [com.superh.hz.monika.realtime.job.MonitorDirectJob :33-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is [null]
+2016-07-06 17:44:06 [com.superh.hz.monika.realtime.job.MonitorDirectJob :36-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-06 17:44:07 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 17:44:07 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 17:44:07 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 17:44:07 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:51960]
+2016-07-06 17:44:08 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 17:44:08 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 17:44:12 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:44:12 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:44:12 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:44:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:44:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467798252102]ms
+2016-07-06 17:44:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 17:44:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:44:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:44:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:44:12 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:44:12 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:44:12 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:44:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467798252412],batch count：[3]
+2016-07-06 17:44:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467798252412],result count：[4]
+2016-07-06 17:44:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:44:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467798256028]ms
+2016-07-06 17:44:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 17:44:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:44:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:44:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:44:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467798256094],batch count：[0]
+2016-07-06 17:44:16 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467798256094],result count：[0]
+2016-07-06 17:44:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:44:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467798260030]ms
+2016-07-06 17:44:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 17:44:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:44:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:44:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:44:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467798260068],batch count：[0]
+2016-07-06 17:44:20 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467798260068],result count：[0]
+2016-07-06 17:44:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:44:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467798264027]ms
+2016-07-06 17:44:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 17:44:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:44:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:44:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:44:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 17:44:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :211-line]-[INFO:] ----------------deal time=>[1467798264058],batch count：[0]
+2016-07-06 17:44:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :212-line]-[INFO:] ----------------deal time=>[1467798264058],result count：[0]
+2016-07-06 17:55:21 [com.superh.hz.monika.realtime.job.MonitorDirectJob :30-line]-[INFO:] MONITOR_TASK_FLAG is [1]
+2016-07-06 17:55:21 [com.superh.hz.monika.realtime.job.MonitorDirectJob :33-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is [null]
+2016-07-06 17:55:21 [com.superh.hz.monika.realtime.job.MonitorDirectJob :36-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-06 17:55:22 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 17:55:22 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 17:55:22 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 17:55:22 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:52135]
+2016-07-06 17:55:23 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 17:55:23 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 17:55:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 17:55:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 17:55:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 17:55:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 17:55:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467798924136]ms
+2016-07-06 17:55:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 17:55:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 17:55:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 17:55:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 17:55:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 17:55:24 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 17:55:24 [org.apache.spark.streaming.scheduler.JobScheduler :95-line]-[ERROR:] Error running job streaming job 1467798924000 ms.0
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at com.superh.hz.monika.realtime.task.SimpleMonitorTaskParser.parser2Task(SimpleMonitorTaskParser.java:25)
+	at com.superh.hz.monika.realtime.task.MonitorTaskBuilder.buildTask(MonitorTaskBuilder.java:68)
+	at com.superh.hz.monika.realtime.task.MonitorTaskBuilder.buildTaskList(MonitorTaskBuilder.java:58)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob$3.call(MonitorDirectJob.java:156)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob$3.call(MonitorDirectJob.java:1)
+	at org.apache.spark.streaming.api.java.JavaDStreamLike$$anonfun$foreachRDD$3.apply(JavaDStreamLike.scala:335)
+	at org.apache.spark.streaming.api.java.JavaDStreamLike$$anonfun$foreachRDD$3.apply(JavaDStreamLike.scala:335)
+	at org.apache.spark.streaming.dstream.DStream$$anonfun$foreachRDD$1$$anonfun$apply$mcV$sp$3.apply(DStream.scala:661)
+	at org.apache.spark.streaming.dstream.DStream$$anonfun$foreachRDD$1$$anonfun$apply$mcV$sp$3.apply(DStream.scala:661)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(ForEachDStream.scala:50)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(ForEachDStream.scala:50)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(ForEachDStream.scala:50)
+	at org.apache.spark.streaming.dstream.DStream.createRDDWithLocalProperties(DStream.scala:426)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply$mcV$sp(ForEachDStream.scala:49)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply(ForEachDStream.scala:49)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply(ForEachDStream.scala:49)
+	at scala.util.Try$.apply(Try.scala:161)
+	at org.apache.spark.streaming.scheduler.Job.run(Job.scala:39)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply$mcV$sp(JobScheduler.scala:224)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply(JobScheduler.scala:224)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply(JobScheduler.scala:224)
+	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:57)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler.run(JobScheduler.scala:223)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming/batch,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/static/streaming,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming/batch/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/metrics/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/api,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/static,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/environment/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/environment,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage/rdd,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/pool,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/stage,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs/job,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs/json,null}
+2016-07-06 17:55:24 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs,null}
+2016-07-06 18:00:31 [com.superh.hz.monika.realtime.job.MonitorDirectJob :30-line]-[INFO:] MONITOR_TASK_FLAG is [1]
+2016-07-06 18:00:31 [com.superh.hz.monika.realtime.job.MonitorDirectJob :33-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is [null]
+2016-07-06 18:00:31 [com.superh.hz.monika.realtime.job.MonitorDirectJob :36-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-06 18:00:32 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 18:00:32 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 18:00:32 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 18:00:33 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:52292]
+2016-07-06 18:00:33 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 18:00:33 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 18:00:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 18:00:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 18:00:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467799236094]ms
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.task.CommonMonitorTask :29-line]-[ERROR:] task param string is null or not format-task type is[1],task id is[6]
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 18:00:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 18:00:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 18:00:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.job.MonitorDirectJob :213-line]-[INFO:] ----------------deal time=>[1467799236414],batch count：[3]
+2016-07-06 18:00:36 [com.superh.hz.monika.realtime.job.MonitorDirectJob :214-line]-[INFO:] ----------------deal time=>[1467799236414],result count：[3]
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467799240023]ms
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.task.CommonMonitorTask :29-line]-[ERROR:] task param string is null or not format-task type is[1],task id is[6]
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[3]
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.job.MonitorDirectJob :213-line]-[INFO:] ----------------deal time=>[1467799240078],batch count：[0]
+2016-07-06 18:00:40 [com.superh.hz.monika.realtime.job.MonitorDirectJob :214-line]-[INFO:] ----------------deal time=>[1467799240078],result count：[0]
+2016-07-06 18:08:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :30-line]-[INFO:] MONITOR_TASK_FLAG is [1]
+2016-07-06 18:08:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :33-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is [null]
+2016-07-06 18:08:04 [com.superh.hz.monika.realtime.job.MonitorDirectJob :36-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-06 18:08:04 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 18:08:05 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 18:08:05 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 18:08:05 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:52467]
+2016-07-06 18:08:05 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 18:08:05 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 18:08:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 18:08:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 18:08:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 18:08:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 18:08:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467799688097]ms
+2016-07-06 18:08:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 18:08:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 18:08:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 18:08:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 18:08:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 18:08:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 18:08:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[0]
+2016-07-06 18:08:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 18:08:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 18:08:08 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 18:08:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :213-line]-[INFO:] ----------------deal time=>[1467799688377],batch count：[3]
+2016-07-06 18:08:08 [com.superh.hz.monika.realtime.job.MonitorDirectJob :214-line]-[INFO:] ----------------deal time=>[1467799688377],result count：[0]
+2016-07-06 18:08:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 18:08:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467799692023]ms
+2016-07-06 18:08:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 18:08:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 18:08:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 18:08:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 18:08:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 18:08:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 18:08:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[0]
+2016-07-06 18:08:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :213-line]-[INFO:] ----------------deal time=>[1467799692082],batch count：[0]
+2016-07-06 18:08:12 [com.superh.hz.monika.realtime.job.MonitorDirectJob :214-line]-[INFO:] ----------------deal time=>[1467799692082],result count：[0]
+2016-07-06 18:10:23 [com.superh.hz.monika.realtime.job.MonitorDirectJob :30-line]-[INFO:] MONITOR_TASK_FLAG is [2]
+2016-07-06 18:10:23 [com.superh.hz.monika.realtime.job.MonitorDirectJob :33-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is []
+2016-07-06 18:10:23 [com.superh.hz.monika.realtime.job.MonitorDirectJob :36-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-06 18:10:24 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.buildStream(MonitorDirectJob.java:80)
+	at com.superh.hz.monika.realtime.job.MonitorDirectJob.main(MonitorDirectJob.java:64)
+2016-07-06 18:10:25 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-06 18:10:25 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-06 18:10:25 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:52592]
+2016-07-06 18:10:25 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-06 18:10:25 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-06 18:10:28 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 18:10:28 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 18:10:28 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 18:10:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 18:10:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467799828109]ms
+2016-07-06 18:10:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-06 18:10:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 18:10:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 18:10:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 18:10:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 18:10:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 18:10:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[0]
+2016-07-06 18:10:28 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-06 18:10:28 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-06 18:10:28 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-06 18:10:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :213-line]-[INFO:] ----------------deal time=>[1467799828388],batch count：[3]
+2016-07-06 18:10:28 [com.superh.hz.monika.realtime.job.MonitorDirectJob :214-line]-[INFO:] ----------------deal time=>[1467799828388],result count：[0]
+2016-07-06 18:10:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :142-line]-[INFO:] -----------------------------------------
+2016-07-06 18:10:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :143-line]-[INFO:] Time: [1467799832023]ms
+2016-07-06 18:10:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-06 18:10:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-06 18:10:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-06 18:10:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :145-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-06 18:10:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :152-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-06 18:10:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :153-line]-[INFO:] -----------------------------------------
+2016-07-06 18:10:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :157-line]-[INFO:] ----------------当前布控任务总数量：[0]
+2016-07-06 18:10:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :213-line]-[INFO:] ----------------deal time=>[1467799832071],batch count：[0]
+2016-07-06 18:10:32 [com.superh.hz.monika.realtime.job.MonitorDirectJob :214-line]-[INFO:] ----------------deal time=>[1467799832071],result count：[0]

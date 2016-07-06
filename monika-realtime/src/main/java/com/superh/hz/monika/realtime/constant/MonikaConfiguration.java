@@ -1,9 +1,15 @@
 package com.superh.hz.monika.realtime.constant;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.superh.hz.monika.realtime.PropertiesHelper;
+import com.superh.hz.monika.realtime.job.MonitorDirectJob;
 
 public class MonikaConfiguration {
 
+	private static final Logger logger = LoggerFactory.getLogger(MonitorDirectJob.class);
+	
 	private int monitorTaskFlag;
 	private String monitorTaskClass;
 	private String monitorTaskParserClass;
@@ -14,19 +20,24 @@ public class MonikaConfiguration {
 	}
 	
 	public static MonikaConfiguration buildInstance(PropertiesHelper propertiesHelper){
+		
 		if (instance == null) {
 			synchronized (MonikaConfiguration.class) {
 		       if (instance == null) {
 		    	   instance = new MonikaConfiguration();
 		    	   instance.setMonitorTaskFlag(propertiesHelper.getInt(
 		    			   MonikaMonitorConstant.MONIKA_MONITOR_TASK_FLAG, 1));
+		    	   logger.info("MONITOR_TASK_FLAG is [{}]",instance.getMonitorTaskFlag());
 		    	   instance.setMonitorTaskClass(propertiesHelper.getProperty(
 		    			   MonikaMonitorConstant.MONIKA_MONITOR_TASK_CLASS));
+		    	   logger.info("MONIKA_MONITOR_TASK_CLASS is [{}]",instance.getMonitorTaskClass());
 		    	   instance.setMonitorTaskClass(propertiesHelper.getProperty(
 		    			   MonikaMonitorConstant.MONIKA_MONITOR_TASK_PARSER_CLASS));
+		    	   logger.info("MONIKA_MONITOR_TASK_PARSER_CLASS is [{}]",instance.getMonitorTaskParserClass());
 		       }
 		    }
 		}
+		
 		return instance;
 	}
 	
