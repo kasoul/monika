@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.superh.hz.monika.realtime.constant.MonikaConfiguration;
-import com.superh.hz.monika.realtime.constant.MonikaMonitorTaskFlag;
+import com.superh.hz.monika.realtime.enumeration.MonikaMonitorTaskSign;
 
 import net.sf.json.JSONObject;
 
@@ -13,12 +13,12 @@ public class MonitorTaskBuilder {
 	
 	private static MonitorTaskParser monitorTaskParser;
 	
-	public void init(){
+	public static void init(){
 		if(MonikaConfiguration.getInstance().getMonitorTaskFlag()==
-				MonikaMonitorTaskFlag.SimpleTask.getValue()){
+				MonikaMonitorTaskSign.SIMPLE_TASK.getValue()){
 			monitorTaskParser = new SimpleMonitorTaskParser();
 		}else if(MonikaConfiguration.getInstance().getMonitorTaskFlag()==
-			MonikaMonitorTaskFlag.CommonTask.getValue()){
+				MonikaMonitorTaskSign.COMMON_TASK.getValue()){
 			monitorTaskParser = new CommonMonitorTaskParser();
 		}else{
 			Class<?> c;
@@ -49,20 +49,20 @@ public class MonitorTaskBuilder {
 			
 			long startTime = jsonTask.getLong(MonitorTask.TASK_BEGIN_TIME_FIELD_NAME);
 			long endTime = jsonTask.getLong(MonitorTask.TASK_END_TIME_FILED_NAME);
+			String taskParams = jsonTask.getString(MonitorTask.TASK_PARAMS_FILED_NAME); 
 			if(nowTime < startTime || nowTime > endTime){
 				//System.out.println(Long.parseLong(beginTime));
 				//System.out.println(Long.parseLong(endTime));
 				continue;
 			}else{
-				list.add(buildTask(taskType,taskId,taskInfoMap.get(taskInfoKey)));
+				list.add(buildTask(taskType,taskId,taskParams));
 			}
 		}
 		return list;
 	}
 	
-	private static MonitorTask buildTask(String taskType,String taskId, String taskJson ){
-		return monitorTaskParser.parser2Task(taskType,taskId,taskJson);
-		
+	private static MonitorTask buildTask(String taskType,String taskId, String taskParams ){
+		return monitorTaskParser.parser2Task(taskType,taskId,taskParams);
 	}
 	
 	

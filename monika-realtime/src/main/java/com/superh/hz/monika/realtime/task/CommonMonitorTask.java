@@ -1,7 +1,6 @@
 package com.superh.hz.monika.realtime.task;
 
 import java.util.List;
-import java.util.Map;
 
 import net.sf.json.JSONObject;
 
@@ -17,15 +16,12 @@ public class CommonMonitorTask implements MonitorTask {
 	private List<MonitorCondition> monitorParams;
 	
 	
-	public CommonMonitorTask(String taskType,String taskId,String taskString){
+	public CommonMonitorTask(String taskType,String taskId,List<MonitorCondition> monitorParams){
 		this.setTaskType(taskType);
 		this.setTaskId(taskId);
-		this.setMonitorParams(MonitorTaskParser.parse2SimpleTask(taskString));
+		this.setMonitorParams(monitorParams);
 	}
 	
-	public static void main(String[] args) {
-	}
-
 	@Override
 	public boolean executeMonitor(JSONObject jsonTuple) {
 		return false;
@@ -47,6 +43,14 @@ public class CommonMonitorTask implements MonitorTask {
 
 	public void setTaskId(String taskId) {
 		this.taskId = taskId;
+	}
+
+	public List<MonitorCondition> getMonitorParams() {
+		return monitorParams;
+	}
+
+	public void setMonitorParams(List<MonitorCondition> monitorParams) {
+		this.monitorParams = monitorParams;
 	}
 }
 
