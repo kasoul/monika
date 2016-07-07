@@ -21,7 +21,7 @@ public class MonitorTaskBatchCreator {
 		
 		//getALLTask();
 		//deleteAllTask();
-		getResluts();
+		//getResluts();
 		//delResluts();
 		
 	}

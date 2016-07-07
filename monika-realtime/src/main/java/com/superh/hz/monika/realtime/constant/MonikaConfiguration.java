@@ -4,11 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.superh.hz.monika.realtime.PropertiesHelper;
-import com.superh.hz.monika.realtime.job.MonitorDirectJob;
 
 public class MonikaConfiguration {
 
-	private static final Logger logger = LoggerFactory.getLogger(MonitorDirectJob.class);
+	private static final Logger logger = LoggerFactory.getLogger(MonikaConfiguration.class);
 	
 	private int monitorTaskFlag;
 	private String monitorTaskClass;
