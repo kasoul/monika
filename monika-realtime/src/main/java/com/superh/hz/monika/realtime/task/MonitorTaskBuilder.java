@@ -59,15 +59,22 @@ public class MonitorTaskBuilder {
 			long startTime = jsonTask.getLong(MonitorTask.TASK_BEGIN_TIME_FIELD_NAME);
 			long endTime = jsonTask.getLong(MonitorTask.TASK_END_TIME_FILED_NAME);
 			String taskParams = jsonTask.getString(MonitorTask.TASK_PARAMS_FILED_NAME); 
+			
 			if(nowTime < startTime || nowTime > endTime){
+				
 				//System.out.println(Long.parseLong(beginTime));
 				//System.out.println(Long.parseLong(endTime));
 				continue;
+				
 			}else{
+				
 				MonitorTask task = buildTask(taskType,taskId,taskParams);
 				if(!task.isNullParams()){
+					
 					list.add(buildTask(taskType,taskId,taskParams));
+					
 				}
+				
 			}
 			
 		}

@@ -9,3 +9,4 @@ a framework to monitor real time data flow，it's based on kafka、spark and red
 支持的监控任务格式：key-value（value为json） <br>
 支持的监控结果存储：redis <br>
 支持的全量存储：无 <br>
+支持的kafka-streaming类型：direct、receiver

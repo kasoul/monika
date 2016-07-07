@@ -26,8 +26,11 @@ public class SimpleMonitorTaskParser extends MonitorTaskParser {
 						params[i].split(SIMPLE_TASK_PARAMS_ITEM_SPILT)[1]);
 			}
 		} catch (ArrayIndexOutOfBoundsException ex) {
+			
 			logger.error("task param string is null or not format-task type is[{}],task id is[{}]", taskType, taskId);
+			
 			return new SimpleMonitorTask(taskType, taskId, new HashMap<String, String>());
+		
 		}
 
 		return new SimpleMonitorTask(taskType, taskId, monitorParams);

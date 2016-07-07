@@ -22,6 +22,6 @@ public enum MonikaMonitorTaskParamsOpeSign {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(MonikaMonitorTaskParamsOpeSign.EQUAL);
+		System.out.println("eq".equals(MonikaMonitorTaskParamsOpeSign.EQUAL));
 	}
 }

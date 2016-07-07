@@ -1089,3 +1089,544 @@ java.io.IOException: Could not locate executable null\bin\winutils.exe in the Ha
 2016-07-07 09:50:04 [com.superh.hz.monika.realtime.job.MonitorJobStartup :164-line]-[INFO:] ----------------当前布控任务总数量：[0]
 2016-07-07 09:50:04 [com.superh.hz.monika.realtime.job.MonitorJobStartup :220-line]-[INFO:] ----------------deal time=>[1467856204076],batch count：[0]
 2016-07-07 09:50:04 [com.superh.hz.monika.realtime.job.MonitorJobStartup :221-line]-[INFO:] ----------------deal time=>[1467856204076],result count：[0]
+2016-07-07 15:38:29 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :32-line]-[INFO:] MONITOR_TASK_FLAG is [2]
+2016-07-07 15:38:29 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :35-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is []
+2016-07-07 15:38:29 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :38-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-07 15:38:30 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup.buildDirectStream(MonitorJobStartup.java:93)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup.main(MonitorJobStartup.java:71)
+2016-07-07 15:38:30 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-07 15:38:30 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-07 15:38:30 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:64945]
+2016-07-07 15:38:30 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-07 15:38:30 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-07 15:38:32 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-07 15:38:32 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-07 15:38:32 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-07 15:38:32 [com.superh.hz.monika.realtime.job.MonitorJobStartup :155-line]-[INFO:] -----------------------------------------
+2016-07-07 15:38:32 [com.superh.hz.monika.realtime.job.MonitorJobStartup :156-line]-[INFO:] Time: [1467877112109]ms
+2016-07-07 15:38:32 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-07 15:38:32 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-07 15:38:32 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-07 15:38:32 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-07 15:38:32 [com.superh.hz.monika.realtime.job.MonitorJobStartup :165-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-07 15:38:32 [com.superh.hz.monika.realtime.job.MonitorJobStartup :166-line]-[INFO:] -----------------------------------------
+2016-07-07 15:38:32 [com.superh.hz.monika.realtime.job.MonitorJobStartup :171-line]-[INFO:] ----------------当前布控任务总数量：[1]
+2016-07-07 15:38:32 [org.apache.spark.streaming.scheduler.JobScheduler :95-line]-[ERROR:] Error running job streaming job 1467877112000 ms.0
+java.io.NotSerializableException: com.superh.hz.monika.realtime.task.MonitorCondition
+Serialization stack:
+	- object not serializable (class: com.superh.hz.monika.realtime.task.MonitorCondition, value: com.superh.hz.monika.realtime.task.MonitorCondition@a4cd25c)
+	- writeObject data (class: java.util.ArrayList)
+	- object (class java.util.ArrayList, [com.superh.hz.monika.realtime.task.MonitorCondition@a4cd25c])
+	- field (class: com.superh.hz.monika.realtime.task.CommonMonitorTask, name: monitorParams, type: interface java.util.List)
+	- object (class com.superh.hz.monika.realtime.task.CommonMonitorTask, com.superh.hz.monika.realtime.task.CommonMonitorTask@547b11a8)
+	- writeObject data (class: java.util.ArrayList)
+	- object (class java.util.ArrayList, [com.superh.hz.monika.realtime.task.CommonMonitorTask@547b11a8])
+	at org.apache.spark.serializer.SerializationDebugger$.improveException(SerializationDebugger.scala:40)
+	at org.apache.spark.serializer.JavaSerializationStream.writeObject(JavaSerializer.scala:47)
+	at org.apache.spark.broadcast.TorrentBroadcast$.blockifyObject(TorrentBroadcast.scala:203)
+	at org.apache.spark.broadcast.TorrentBroadcast.writeBlocks(TorrentBroadcast.scala:102)
+	at org.apache.spark.broadcast.TorrentBroadcast.<init>(TorrentBroadcast.scala:85)
+	at org.apache.spark.broadcast.TorrentBroadcastFactory.newBroadcast(TorrentBroadcastFactory.scala:34)
+	at org.apache.spark.broadcast.BroadcastManager.newBroadcast(BroadcastManager.scala:63)
+	at org.apache.spark.SparkContext.broadcast(SparkContext.scala:1326)
+	at org.apache.spark.api.java.JavaSparkContext.broadcast(JavaSparkContext.scala:639)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3.call(MonitorJobStartup.java:174)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3.call(MonitorJobStartup.java:1)
+	at org.apache.spark.streaming.api.java.JavaDStreamLike$$anonfun$foreachRDD$3.apply(JavaDStreamLike.scala:335)
+	at org.apache.spark.streaming.api.java.JavaDStreamLike$$anonfun$foreachRDD$3.apply(JavaDStreamLike.scala:335)
+	at org.apache.spark.streaming.dstream.DStream$$anonfun$foreachRDD$1$$anonfun$apply$mcV$sp$3.apply(DStream.scala:661)
+	at org.apache.spark.streaming.dstream.DStream$$anonfun$foreachRDD$1$$anonfun$apply$mcV$sp$3.apply(DStream.scala:661)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(ForEachDStream.scala:50)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(ForEachDStream.scala:50)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(ForEachDStream.scala:50)
+	at org.apache.spark.streaming.dstream.DStream.createRDDWithLocalProperties(DStream.scala:426)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply$mcV$sp(ForEachDStream.scala:49)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply(ForEachDStream.scala:49)
+	at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply(ForEachDStream.scala:49)
+	at scala.util.Try$.apply(Try.scala:161)
+	at org.apache.spark.streaming.scheduler.Job.run(Job.scala:39)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply$mcV$sp(JobScheduler.scala:224)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply(JobScheduler.scala:224)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler$$anonfun$run$1.apply(JobScheduler.scala:224)
+	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:57)
+	at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler.run(JobScheduler.scala:223)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming/batch,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/static/streaming,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming/batch/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/streaming/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/metrics/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/api,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/static,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/executors,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/environment/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/environment,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage/rdd,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/storage,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/pool,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/stage,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/stages,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs/job,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs/json,null}
+2016-07-07 15:38:32 [org.spark-project.jetty.server.handler.ContextHandler :843-line]-[INFO:] stopped o.s.j.s.ServletContextHandler{/jobs,null}
+2016-07-07 15:39:32 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :32-line]-[INFO:] MONITOR_TASK_FLAG is [2]
+2016-07-07 15:39:32 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :35-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is []
+2016-07-07 15:39:32 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :38-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-07 15:39:33 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup.buildDirectStream(MonitorJobStartup.java:93)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup.main(MonitorJobStartup.java:71)
+2016-07-07 15:39:33 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-07 15:39:33 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-07 15:39:33 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:65056]
+2016-07-07 15:39:34 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-07 15:39:34 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-07 15:39:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-07 15:39:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-07 15:39:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :155-line]-[INFO:] -----------------------------------------
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :156-line]-[INFO:] Time: [1467877176121]ms
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :165-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :166-line]-[INFO:] -----------------------------------------
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :171-line]-[INFO:] ----------------当前布控任务总数量：[1]
+2016-07-07 15:39:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-07 15:39:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-07 15:39:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.task.CommonMonitorTask :43-line]-[ERROR:] task paramter value type is not correct.
+com.superh.hz.monika.realtime.throwable.MonitorConditionException: task paramter value type is not correct.:task paramter value type is not correct.
+ com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:95)
+ com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+ org.apache.spark.scheduler.Task.run(Task.scala:89)
+ org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+	at com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:95)
+	at com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:89)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.task.CommonMonitorTask :43-line]-[ERROR:] task paramter value type is not correct.
+com.superh.hz.monika.realtime.throwable.MonitorConditionException: task paramter value type is not correct.:task paramter value type is not correct.
+ com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:95)
+ com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+ org.apache.spark.scheduler.Task.run(Task.scala:89)
+ org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+	at com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:95)
+	at com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:89)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.task.CommonMonitorTask :43-line]-[ERROR:] task paramter value type is not correct.
+com.superh.hz.monika.realtime.throwable.MonitorConditionException: task paramter value type is not correct.:task paramter value type is not correct.
+ com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:95)
+ com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+ org.apache.spark.scheduler.Task.run(Task.scala:89)
+ org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+	at com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:95)
+	at com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:89)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :227-line]-[INFO:] ----------------deal time=>[1467877176425],batch count：[3]
+2016-07-07 15:39:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :228-line]-[INFO:] ----------------deal time=>[1467877176425],result count：[0]
+2016-07-07 15:39:40 [com.superh.hz.monika.realtime.job.MonitorJobStartup :155-line]-[INFO:] -----------------------------------------
+2016-07-07 15:39:40 [com.superh.hz.monika.realtime.job.MonitorJobStartup :156-line]-[INFO:] Time: [1467877180023]ms
+2016-07-07 15:39:40 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-07 15:39:40 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-07 15:39:40 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-07 15:39:40 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-07 15:39:40 [com.superh.hz.monika.realtime.job.MonitorJobStartup :165-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-07 15:39:40 [com.superh.hz.monika.realtime.job.MonitorJobStartup :166-line]-[INFO:] -----------------------------------------
+2016-07-07 15:39:40 [com.superh.hz.monika.realtime.job.MonitorJobStartup :171-line]-[INFO:] ----------------当前布控任务总数量：[1]
+2016-07-07 15:39:40 [com.superh.hz.monika.realtime.job.MonitorJobStartup :227-line]-[INFO:] ----------------deal time=>[1467877180083],batch count：[0]
+2016-07-07 15:39:40 [com.superh.hz.monika.realtime.job.MonitorJobStartup :228-line]-[INFO:] ----------------deal time=>[1467877180083],result count：[0]
+2016-07-07 15:42:31 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :32-line]-[INFO:] MONITOR_TASK_FLAG is [2]
+2016-07-07 15:42:31 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :35-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is []
+2016-07-07 15:42:31 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :38-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-07 15:42:32 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup.buildDirectStream(MonitorJobStartup.java:93)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup.main(MonitorJobStartup.java:71)
+2016-07-07 15:42:32 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-07 15:42:32 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-07 15:42:32 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:65211]
+2016-07-07 15:42:33 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-07 15:42:33 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-07 15:42:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-07 15:42:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-07 15:42:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-07 15:42:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :155-line]-[INFO:] -----------------------------------------
+2016-07-07 15:42:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :156-line]-[INFO:] Time: [1467877356109]ms
+2016-07-07 15:42:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-07 15:42:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-07 15:42:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-07 15:42:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-07 15:42:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :165-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-07 15:42:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :166-line]-[INFO:] -----------------------------------------
+2016-07-07 15:42:36 [com.superh.hz.monika.realtime.job.MonitorJobStartup :171-line]-[INFO:] ----------------当前布控任务总数量：[1]
+2016-07-07 15:42:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-07 15:42:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-07 15:42:36 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-07 15:49:16 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :32-line]-[INFO:] MONITOR_TASK_FLAG is [2]
+2016-07-07 15:49:16 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :35-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is []
+2016-07-07 15:49:16 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :38-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-07 15:49:16 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup.buildDirectStream(MonitorJobStartup.java:93)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup.main(MonitorJobStartup.java:71)
+2016-07-07 15:49:17 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-07 15:49:17 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-07 15:49:17 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:65462]
+2016-07-07 15:49:17 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-07 15:49:17 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-07 15:49:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-07 15:49:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-07 15:49:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.job.MonitorJobStartup :155-line]-[INFO:] -----------------------------------------
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.job.MonitorJobStartup :156-line]-[INFO:] Time: [1467877760079]ms
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.job.MonitorJobStartup :165-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.job.MonitorJobStartup :166-line]-[INFO:] -----------------------------------------
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.job.MonitorJobStartup :171-line]-[INFO:] ----------------当前布控任务总数量：[1]
+2016-07-07 15:49:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-07 15:49:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-07 15:49:20 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.task.CommonMonitorTask :43-line]-[ERROR:] task paramter operation is not correct.(type is 'string')
+com.superh.hz.monika.realtime.throwable.MonitorConditionException: task paramter operation is not correct.(type is 'string'):task paramter operation is not correct.(type is 'string')
+ com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:46)
+ com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+ org.apache.spark.scheduler.Task.run(Task.scala:89)
+ org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+	at com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:46)
+	at com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:89)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.task.CommonMonitorTask :43-line]-[ERROR:] task paramter operation is not correct.(type is 'string')
+com.superh.hz.monika.realtime.throwable.MonitorConditionException: task paramter operation is not correct.(type is 'string'):task paramter operation is not correct.(type is 'string')
+ com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:46)
+ com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+ org.apache.spark.scheduler.Task.run(Task.scala:89)
+ org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+	at com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:46)
+	at com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:89)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.task.CommonMonitorTask :43-line]-[ERROR:] task paramter operation is not correct.(type is 'string')
+com.superh.hz.monika.realtime.throwable.MonitorConditionException: task paramter operation is not correct.(type is 'string'):task paramter operation is not correct.(type is 'string')
+ com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:46)
+ com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+ com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+ org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+ org.apache.spark.scheduler.Task.run(Task.scala:89)
+ org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+	at com.superh.hz.monika.realtime.task.MonitorCondition.filter(MonitorCondition.java:46)
+	at com.superh.hz.monika.realtime.task.CommonMonitorTask.executeMonitor(CommonMonitorTask.java:38)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:206)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup$3$1.call(MonitorJobStartup.java:1)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.api.java.JavaRDDLike$$anonfun$foreachPartition$1.apply(JavaRDDLike.scala:225)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.rdd.RDD$$anonfun$foreachPartition$1$$anonfun$apply$33.apply(RDD.scala:920)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:89)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.job.MonitorJobStartup :227-line]-[INFO:] ----------------deal time=>[1467877760365],batch count：[3]
+2016-07-07 15:49:20 [com.superh.hz.monika.realtime.job.MonitorJobStartup :228-line]-[INFO:] ----------------deal time=>[1467877760365],result count：[0]
+2016-07-07 15:53:21 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :32-line]-[INFO:] MONITOR_TASK_FLAG is [2]
+2016-07-07 15:53:21 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :35-line]-[INFO:] MONIKA_MONITOR_TASK_CLASS is []
+2016-07-07 15:53:21 [com.superh.hz.monika.realtime.constant.MonikaConfiguration :38-line]-[INFO:] MONIKA_MONITOR_TASK_PARSER_CLASS is [null]
+2016-07-07 15:53:21 [org.apache.hadoop.util.Shell :396-line]-[ERROR:] Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:130)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:94)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:74)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:303)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:790)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:760)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:633)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at org.apache.spark.util.Utils$$anonfun$getCurrentUserName$1.apply(Utils.scala:2160)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2160)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:322)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:874)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:81)
+	at org.apache.spark.streaming.api.java.JavaStreamingContext.<init>(JavaStreamingContext.scala:140)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup.buildDirectStream(MonitorJobStartup.java:93)
+	at com.superh.hz.monika.realtime.job.MonitorJobStartup.main(MonitorJobStartup.java:71)
+2016-07-07 15:53:22 [akka.event.slf4j.Slf4jLogger :80-line]-[INFO:] Slf4jLogger started
+2016-07-07 15:53:22 [Remoting :74-line]-[INFO:] Starting remoting
+2016-07-07 15:53:22 [Remoting :74-line]-[INFO:] Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@172.16.4.109:49252]
+2016-07-07 15:53:22 [org.spark-project.jetty.server.Server :272-line]-[INFO:] jetty-8.y.z-SNAPSHOT
+2016-07-07 15:53:22 [org.spark-project.jetty.server.AbstractConnector :338-line]-[INFO:] Started SelectChannelConnector@0.0.0.0:4040
+2016-07-07 15:53:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-07 15:53:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-07 15:53:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-07 15:53:24 [com.superh.hz.monika.realtime.job.MonitorJobStartup :155-line]-[INFO:] -----------------------------------------
+2016-07-07 15:53:24 [com.superh.hz.monika.realtime.job.MonitorJobStartup :156-line]-[INFO:] Time: [1467878004100]ms
+2016-07-07 15:53:24 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[0], toOffset:[3]
+2016-07-07 15:53:24 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-07 15:53:24 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-07 15:53:24 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-07 15:53:24 [com.superh.hz.monika.realtime.job.MonitorJobStartup :165-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-07 15:53:24 [com.superh.hz.monika.realtime.job.MonitorJobStartup :166-line]-[INFO:] -----------------------------------------
+2016-07-07 15:53:24 [com.superh.hz.monika.realtime.job.MonitorJobStartup :171-line]-[INFO:] ----------------当前布控任务总数量：[1]
+2016-07-07 15:53:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Verifying properties
+2016-07-07 15:53:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property group.id is overridden to 
+2016-07-07 15:53:24 [kafka.utils.VerifiableProperties :68-line]-[INFO:] Property zookeeper.connect is overridden to 
+2016-07-07 15:53:24 [com.superh.hz.monika.realtime.job.MonitorJobStartup :227-line]-[INFO:] ----------------deal time=>[1467878004417],batch count：[3]
+2016-07-07 15:53:24 [com.superh.hz.monika.realtime.job.MonitorJobStartup :228-line]-[INFO:] ----------------deal time=>[1467878004417],result count：[1]
+2016-07-07 15:53:28 [com.superh.hz.monika.realtime.job.MonitorJobStartup :155-line]-[INFO:] -----------------------------------------
+2016-07-07 15:53:28 [com.superh.hz.monika.realtime.job.MonitorJobStartup :156-line]-[INFO:] Time: [1467878008024]ms
+2016-07-07 15:53:28 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[0], fromOffset:[0], toOffset:[0]
+2016-07-07 15:53:28 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[3], fromOffset:[3], toOffset:[3]
+2016-07-07 15:53:28 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[1], fromOffset:[0], toOffset:[0]
+2016-07-07 15:53:28 [com.superh.hz.monika.realtime.job.MonitorJobStartup :158-line]-[INFO:] topic:[hctest], partition:[2], fromOffset:[0], toOffset:[0]
+2016-07-07 15:53:28 [com.superh.hz.monika.realtime.job.MonitorJobStartup :165-line]-[INFO:] update kafka offset completed,topic:meta.
+2016-07-07 15:53:28 [com.superh.hz.monika.realtime.job.MonitorJobStartup :166-line]-[INFO:] -----------------------------------------
+2016-07-07 15:53:28 [com.superh.hz.monika.realtime.job.MonitorJobStartup :171-line]-[INFO:] ----------------当前布控任务总数量：[1]
+2016-07-07 15:53:28 [com.superh.hz.monika.realtime.job.MonitorJobStartup :227-line]-[INFO:] ----------------deal time=>[1467878008099],batch count：[0]
+2016-07-07 15:53:28 [com.superh.hz.monika.realtime.job.MonitorJobStartup :228-line]-[INFO:] ----------------deal time=>[1467878008099],result count：[0]

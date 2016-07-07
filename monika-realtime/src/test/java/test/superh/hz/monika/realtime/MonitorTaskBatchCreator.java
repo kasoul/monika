@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.superh.hz.monika.realtime.enumeration.MonikaMonitorTaskParamsOpeSign;
+import com.superh.hz.monika.realtime.enumeration.MonikaMonitorTaskParamsValueTypeSign;
 import com.superh.hz.monika.realtime.result.MonitorResult;
 import com.superh.hz.monika.realtime.task.MonitorTask;
 import com.superh.hz.monika.realtime.task.MonitorTaskParser;
@@ -22,7 +24,7 @@ public class MonitorTaskBatchCreator {
 		//getALLTask();
 		//deleteAllTask();
 		//getResluts();
-		//delResluts();
+		delResluts();
 		
 	}
 	
@@ -67,20 +69,42 @@ public class MonitorTaskBatchCreator {
 	public static void addCommonTask(){
 		Jedis jedis = new Jedis("node2", 6379);
 		Map<String,String> map = new HashMap<String,String>();
-			String monitorTaskKey = "1-" + 2;
+			String monitorTaskKey = "2-" + 1;
 			JSONObject jsonTask = new JSONObject();
-			jsonTask.element(MonitorTask.TASK_BEGIN_TIME_FIELD_NAME, 9999999999999L);
+			jsonTask.element(MonitorTask.TASK_BEGIN_TIME_FIELD_NAME, 0L);
 			jsonTask.element(MonitorTask.TASK_END_TIME_FILED_NAME, 9999999999999L);
-			String paramsString = "age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT +"7"
-					+ MonitorTaskParser.SIMPLE_TASK_PARAMS_SPILT + "name"
-					+ MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT +"Jack";
-			jsonTask.element(MonitorTask.TASK_PARAMS_FILED_NAME, paramsString);
+			String paramsString1 = 
+					"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					"7";
+			String paramsString2 = 
+					"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					"7" + 
+					"name" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					"Jack" ;
+			String paramsString3 = 
+					"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					"7" + 
+					"name" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+					"Tom" ;
+					/*+ MonitorTaskParser.SIMPLE_TASK_PARAMS_SPILT + "name"
+					+ MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT +"Jack";*/
+			jsonTask.element(MonitorTask.TASK_PARAMS_FILED_NAME, paramsString1);
 			System.out.println(jsonTask.toString());
 			map.put(monitorTaskKey, jsonTask.toString());
 		//System.out.println(jedis.exists(RedisKeyConstant.VEHICLE_MONITOR_TASK_KEY));
-		jedis.hmset("hc:test:monitor:task", map);
+		jedis.hmset("hc:test:monitor:task2", map);
 		//System.out.println(jedis.exists(RedisKeyConstant.VEHICLE_MONITOR_TASK_KEY));
-		Map<String,String> mapget = jedis.hgetAll("hc:test:monitor:task");
+		Map<String,String> mapget = jedis.hgetAll("hc:test:monitor:task2");
 		System.out.println("redis任务数量:" +  mapget.size());
 		for(String key : mapget.keySet()){
 			System.out.println("任务key:" + key  + ";" + "任务参数" + mapget.get(key));

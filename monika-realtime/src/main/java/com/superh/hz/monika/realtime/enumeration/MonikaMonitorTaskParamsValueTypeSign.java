@@ -22,6 +22,6 @@ public enum MonikaMonitorTaskParamsValueTypeSign {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(MonikaMonitorTaskParamsValueTypeSign.STRING);
+		System.out.println(1==MonikaMonitorTaskParamsValueTypeSign.STRING.getValue());
 	}
 }
