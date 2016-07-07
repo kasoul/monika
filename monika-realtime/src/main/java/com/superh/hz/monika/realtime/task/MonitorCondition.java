@@ -25,11 +25,17 @@ public class MonitorCondition {
 		if (valueType.equals(MonikaMonitorTaskParamsValueTypeSign.STRING)) {
 
 			if (operation.equals(MonikaMonitorTaskParamsOpeSign.EQUAL)) {
+				
 				return value.equals(target);
+				
 			} else if (operation.equals(MonikaMonitorTaskParamsOpeSign.CONTAIN)) {
+				
 				return target.contains(value);
+				
 			} else if (operation.equals(MonikaMonitorTaskParamsOpeSign.WITHIN)) {
+				
 				return value.contains(target);
+				
 			} else {
 
 				throw new MonitorConditionException("task paramter operation is not correct.(type is \'string\')");
@@ -41,11 +47,17 @@ public class MonitorCondition {
 			int targetInt = Integer.parseInt(target);
 
 			if (operation.equals(MonikaMonitorTaskParamsOpeSign.EQUAL)) {
+				
 				return valueInt == targetInt;
+				
 			} else if (operation.equals(MonikaMonitorTaskParamsOpeSign.GREATERTHAN)) {
+				
 				return targetInt > valueInt;
+				
 			} else if (operation.equals(MonikaMonitorTaskParamsOpeSign.LOWERTHAN)) {
+				
 				return targetInt < valueInt;
+				
 			} else {
 
 				throw new MonitorConditionException("task paramter operation is not correct.(type is \'int\')");
@@ -57,11 +69,17 @@ public class MonitorCondition {
 			long targetInt = Long.parseLong(target);
 
 			if (operation.equals(MonikaMonitorTaskParamsOpeSign.EQUAL)) {
+				
 				return valueInt == targetInt;
+				
 			} else if (operation.equals(MonikaMonitorTaskParamsOpeSign.GREATERTHAN)) {
+				
 				return targetInt > valueInt;
+				
 			} else if (operation.equals(MonikaMonitorTaskParamsOpeSign.LOWERTHAN)) {
+				
 				return targetInt < valueInt;
+				
 			} else {
 
 				throw new MonitorConditionException("task paramter operation is not correct.(type is \'date\')");

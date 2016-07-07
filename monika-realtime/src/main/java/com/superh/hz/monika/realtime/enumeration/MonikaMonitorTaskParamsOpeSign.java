@@ -1,6 +1,8 @@
 package com.superh.hz.monika.realtime.enumeration;
 
-
+/**
+ * @Describe:监控任务参数，操作符标记码
+ */
 public enum MonikaMonitorTaskParamsOpeSign {
 
 	EQUAL("eq"), GREATERTHAN("gt"), LOWERTHAN("lt"), CONTAIN("cont"),WITHIN("in");

@@ -11,6 +11,7 @@ public class MonitorResult {
 	private JSONObject jsonTuple;				
 	
 	public MonitorResult(String monitorTaskType, String monitorTaskId, JSONObject jsonTuple) {
+		
 		super();
 		this.monitorTaskType = monitorTaskType;
 		this.monitorTaskId = monitorTaskId;
@@ -25,12 +26,15 @@ public class MonitorResult {
 	public String getMonitorTaskType() {
 		return monitorTaskType;
 	}
+	
 	public void setMonitorTaskType(String monitorTaskType) {
 		this.monitorTaskType = monitorTaskType;
 	}
+	
 	public String getMonitorTaskId() {
 		return monitorTaskId;
 	}
+	
 	public void setMonitorTaskId(String monitorTaskId) {
 		this.monitorTaskId = monitorTaskId;
 	}

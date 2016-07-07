@@ -1,5 +1,9 @@
 package com.superh.hz.monika.realtime.enumeration;
 
+
+/**
+ * @Describe:kafka DStreaming 类型码
+ */
 public enum MonikaMonitorStreamingTypeSign {
 	
 	DIRECT(1), RECEIVER(2);

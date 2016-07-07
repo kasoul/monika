@@ -1,5 +1,8 @@
 package com.superh.hz.monika.realtime.constant;
 
+/**
+ * @Describe:常量类
+ */
 public interface MonikaMonitorConstant {
 	
 	public static final String PROPERTIES_PATH = "./conf/real-time-monitor-job.properties";

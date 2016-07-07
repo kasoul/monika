@@ -14,17 +14,24 @@ public class MonitorTaskBuilder {
 	private static MonitorTaskParser monitorTaskParser;
 	
 	public static void init(){
+		
 		if(MonikaConfiguration.getInstance().getMonitorTaskFlag()==
 				MonikaMonitorTaskSign.SIMPLE_TASK.getValue()){
+			
 			monitorTaskParser = new SimpleMonitorTaskParser();
+			
 		}else if(MonikaConfiguration.getInstance().getMonitorTaskFlag()==
 				MonikaMonitorTaskSign.COMMON_TASK.getValue()){
+			
 			monitorTaskParser = new CommonMonitorTaskParser();
+			
 		}else{
 			Class<?> c;
 			try {
+				
 				c = Class.forName(MonikaConfiguration.getInstance().getMonitorTaskParserClass());
 				monitorTaskParser = (MonitorTaskParser)c.newInstance();
+				
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -42,7 +49,9 @@ public class MonitorTaskBuilder {
 		
 		long nowTime = System.currentTimeMillis();
 		List<MonitorTask> list = new ArrayList<MonitorTask>();
+		
 		for(String taskInfoKey : taskInfoMap.keySet()){
+			
 			String taskType = taskInfoKey.split(MonitorTask.TASK_KEY_SPILT)[0];
 			String taskId = taskInfoKey.split(MonitorTask.TASK_KEY_SPILT)[1];
 			JSONObject jsonTask = JSONObject.fromObject(taskInfoMap.get(taskInfoKey));
@@ -60,12 +69,16 @@ public class MonitorTaskBuilder {
 					list.add(buildTask(taskType,taskId,taskParams));
 				}
 			}
+			
 		}
+		
 		return list;
 	}
 	
 	private static MonitorTask buildTask(String taskType,String taskId, String taskParams ){
+		
 		return monitorTaskParser.parser2Task(taskType,taskId,taskParams);
+	
 	}
 	
 	

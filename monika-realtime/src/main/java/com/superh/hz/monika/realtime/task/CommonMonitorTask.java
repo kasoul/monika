@@ -11,12 +11,9 @@ import net.sf.json.JSONObject;
 
 public class CommonMonitorTask implements MonitorTask {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
-	public static Logger logger = LoggerFactory.getLogger(CommonMonitorTask.class);
+	private static Logger logger = LoggerFactory.getLogger(CommonMonitorTask.class);
 	
 	private String taskType;
 	private String taskId;

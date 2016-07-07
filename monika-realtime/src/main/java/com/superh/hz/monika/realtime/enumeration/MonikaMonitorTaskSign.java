@@ -1,6 +1,8 @@
 package com.superh.hz.monika.realtime.enumeration;
 
-
+/**
+ * @Describe:监控任务类型标记码
+ */
 public enum MonikaMonitorTaskSign {
 
 	SIMPLE_TASK(1), COMMON_TASK(2), SELFDEFINED_TASK(3);

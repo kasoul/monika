@@ -3,7 +3,7 @@ package com.superh.hz.monika.realtime.throwable;
 public class MonitorConditionException extends Exception{
 
 	/**
-	 * 
+	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = 1L;
 

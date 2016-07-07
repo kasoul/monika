@@ -6,9 +6,6 @@ import net.sf.json.JSONObject;
 
 public class SimpleMonitorTask implements MonitorTask {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private String taskType;

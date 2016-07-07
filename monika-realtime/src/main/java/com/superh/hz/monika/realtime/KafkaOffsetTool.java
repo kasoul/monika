@@ -19,6 +19,9 @@ import kafka.javaapi.TopicMetadata;
 import kafka.javaapi.TopicMetadataRequest;
 import kafka.javaapi.consumer.SimpleConsumer;
 
+/**
+ * @Describe:kafka偏移量读取工具
+ */
 public class KafkaOffsetTool {
 	public static void main(String[] args) {
 		Map<String, String> kafkaParams = new HashMap<String, String>();

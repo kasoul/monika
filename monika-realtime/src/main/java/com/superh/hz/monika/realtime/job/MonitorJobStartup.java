@@ -43,7 +43,7 @@ import redis.clients.jedis.Jedis;
 import scala.Tuple2;
 
 /**
- * @Describe:车辆布控作业
+ * @Describe:监控作业启动器
  */
 public class MonitorJobStartup {
 
@@ -57,16 +57,23 @@ public class MonitorJobStartup {
 	public static void main(String[] args) {
 		
 		PropertyConfigurator.configure(MonikaMonitorConstant.LOG4J_PROPERTIES__PATH);
+		
 		propertiesHelper = new PropertiesHelper(MonikaMonitorConstant.PROPERTIES_PATH,
 				MonikaMonitorConstant.CHAR_SET_DEFUALT);
+		
 		MonikaConfiguration.buildInstance(propertiesHelper);
+		
 		MonitorTaskBuilder.init();
 		
 		if(propertiesHelper.getInt(MonikaMonitorConstant.MONIKA_MONITOR_STREAMING_TYPE,1)
 				==MonikaMonitorStreamingTypeSign.DIRECT.getValue()){
+			
 			buildDirectStream();
+			
 		}else{
+			
 			buildReceiveStream();
+			
 		}
 	
 	}

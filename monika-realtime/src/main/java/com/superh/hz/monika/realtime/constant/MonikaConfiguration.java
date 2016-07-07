@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 
 import com.superh.hz.monika.realtime.PropertiesHelper;
 
+/**
+ * @Describe:自定义作业配置项
+ */
 public class MonikaConfiguration {
 
 	private static final Logger logger = LoggerFactory.getLogger(MonikaConfiguration.class);

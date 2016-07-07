@@ -1,7 +1,6 @@
 package com.superh.hz.monika.realtime.task;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -9,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class CommonMonitorTaskParser extends MonitorTaskParser{
 
-	public static Logger logger = LoggerFactory.getLogger(CommonMonitorTaskParser.class);
+	private static Logger logger = LoggerFactory.getLogger(CommonMonitorTaskParser.class);
 	
 	@Override
 	public MonitorTask parser2Task(String taskType, String taskId, String taskParams) {

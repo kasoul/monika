@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class SimpleMonitorTaskParser extends MonitorTaskParser {
 
-	public static Logger logger = LoggerFactory.getLogger(SimpleMonitorTaskParser.class);
+	private static Logger logger = LoggerFactory.getLogger(SimpleMonitorTaskParser.class);
 
 	public MonitorTask parser2Task(String taskType, String taskId, String taskParams) {
 
