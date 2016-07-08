@@ -30,6 +30,11 @@ public class CommonMonitorTaskParser extends MonitorTaskParser{
 			logger.error("task param string is null or not format-task type is[{}],task id is[{}]", taskType, taskId);
 			
 			return new CommonMonitorTask(taskType, taskId, new ArrayList<MonitorCondition>());
+		}catch (NumberFormatException ex) {
+			
+			logger.error("task param string is null or not format-task type is[{}],task id is[{}]", taskType, taskId);
+			
+			return new CommonMonitorTask(taskType, taskId, new ArrayList<MonitorCondition>());
 		}
 		
 		return new CommonMonitorTask(taskType,taskId,monitorParams);

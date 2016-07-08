@@ -40,7 +40,9 @@ public class CommonMonitorTask implements MonitorTask {
 				
 			} catch (MonitorConditionException e) {
 				
+				logger.error("error in task type-[{}],task id-[{}]",taskType,taskId);
 				logger.error(e.getMessage(),e);
+				
 				return false;
 				
 			}

@@ -21,10 +21,10 @@ public class MonitorTaskBatchCreator {
 		//addSimpleTask();
 		//addCommonTask();
 		
-		//getALLTask();
+		getALLTask();
 		//deleteAllTask();
-		//getResluts();
-		delResluts();
+		getResluts();
+		//delResluts();
 		
 	}
 	
@@ -69,38 +69,78 @@ public class MonitorTaskBatchCreator {
 	public static void addCommonTask(){
 		Jedis jedis = new Jedis("node2", 6379);
 		Map<String,String> map = new HashMap<String,String>();
-			String monitorTaskKey = "2-" + 1;
+		String paramsString1 = 
+				"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"7";
+		String paramsString2 = 
+				"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"7" + MonitorTaskParser.SIMPLE_TASK_PARAMS_SPILT +
+				"name" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"Jack" ;
+		String paramsString3 = 
+				"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"7" + MonitorTaskParser.SIMPLE_TASK_PARAMS_SPILT +
+				"name" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"Tom" ;//监控不到
+		String paramsString4 = 
+				"name" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsOpeSign.CONTAIN + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"ac" ;
+		String paramsString5 = 
+				"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"greater than" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"7";//操作符不合规范
+		String paramsString6 = 
+				"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"string" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"7";//参数值类型不合规范
+		String paramsString7 = 
+				"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"string" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT;
+				//任务构建失败，参数不对
+		String paramsString8 = 
+				"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsOpeSign.GREATERTHAN + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsValueTypeSign.INT + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"3";
+		String paramsString9 = 
+				"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsOpeSign.GREATERTHAN + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsValueTypeSign.INT + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"3" + MonitorTaskParser.SIMPLE_TASK_PARAMS_SPILT +
+				"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsOpeSign.LOWERTHAN + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				MonikaMonitorTaskParamsValueTypeSign.INT + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
+				"10";
+		String[] tasks = new String[]{paramsString1,paramsString2,paramsString3,paramsString4,
+				paramsString5,paramsString6,paramsString7,paramsString8,paramsString9};
+		
+		for(int i=0;i<tasks.length;i++){	
+			String monitorTaskKey = "2-" + (i+1);
 			JSONObject jsonTask = new JSONObject();
 			jsonTask.element(MonitorTask.TASK_BEGIN_TIME_FIELD_NAME, 0L);
 			jsonTask.element(MonitorTask.TASK_END_TIME_FILED_NAME, 9999999999999L);
-			String paramsString1 = 
-					"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					"7";
-			String paramsString2 = 
-					"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					"7" + 
-					"name" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					"Jack" ;
-			String paramsString3 = 
-					"age" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					"7" + 
-					"name" + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					MonikaMonitorTaskParamsOpeSign.EQUAL + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					MonikaMonitorTaskParamsValueTypeSign.STRING + MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT + 
-					"Tom" ;
-					/*+ MonitorTaskParser.SIMPLE_TASK_PARAMS_SPILT + "name"
+			
+			/*+ MonitorTaskParser.SIMPLE_TASK_PARAMS_SPILT + "name"
 					+ MonitorTaskParser.SIMPLE_TASK_PARAMS_ITEM_SPILT +"Jack";*/
-			jsonTask.element(MonitorTask.TASK_PARAMS_FILED_NAME, paramsString1);
+			jsonTask.element(MonitorTask.TASK_PARAMS_FILED_NAME, tasks[i]);
 			System.out.println(jsonTask.toString());
 			map.put(monitorTaskKey, jsonTask.toString());
+		}
 		//System.out.println(jedis.exists(RedisKeyConstant.VEHICLE_MONITOR_TASK_KEY));
 		jedis.hmset("hc:test:monitor:task2", map);
 		//System.out.println(jedis.exists(RedisKeyConstant.VEHICLE_MONITOR_TASK_KEY));
@@ -119,9 +159,9 @@ public class MonitorTaskBatchCreator {
 	public static void getALLTask(){
 		Jedis jedis = new Jedis("node2", 6379);
 		
-		System.out.println(jedis.exists("hc:test:monitor:task"));
+		System.out.println(jedis.exists("hc:test:monitor:task2"));
 		//System.out.println(jedis.exists(RedisKeyConstant.VEHICLE_MONITOR_TASK_KEY));
-		Map<String,String> mapget = jedis.hgetAll("hc:test:monitor:task");
+		Map<String,String> mapget = jedis.hgetAll("hc:test:monitor:task2");
 		System.out.println("redis任务数量:" +  mapget.size());
 		for(String key : mapget.keySet()){
 			System.out.println("任务key:" + key  + ";" + "任务参数" + mapget.get(key));

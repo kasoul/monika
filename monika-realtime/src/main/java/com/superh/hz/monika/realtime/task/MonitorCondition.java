@@ -92,7 +92,7 @@ public class MonitorCondition implements Serializable{
 			}
 		} else {
 
-			throw new MonitorConditionException("task paramter value type is not correct.");
+			throw new MonitorConditionException("task paramter value type is not correct.wrong valueType is " + valueType);
 
 		}
 	}
